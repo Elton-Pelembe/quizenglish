@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modo Desafio</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #121212;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+    .question-box {
+      background-color: #1e1e1e;
+      padding: 20px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+    .answers button {
+      display: block;
+      margin: 10px auto;
+      padding: 10px 20px;
+      font-size: 16px;
+      background: #333;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .answers button:hover {
+      background: #555;
+    }
+    #timer {
+      font-size: 18px;
+      margin-bottom: 10px;
+      color: #ffcc00;
+    }
+    #lives, #coins {
+      margin-bottom: 15px;
+      color: #00e5ff;
+    }
+    #menu {
+      margin-bottom: 20px;
+    }
+    #menu button {
+      background-color: #00bcd4;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 6px;
+      margin: 5px;
+      cursor: pointer;
+    }
+    #menu button:hover {
+      background-color: #00e5ff;
+    }
+    #shop {
+      background: #2b2b2b;
+      padding: 15px;
+      border-radius: 10px;
+      margin-top: 30px;
+    }
+    #shop h3 {
+      color: #00e676;
+    }
+    .shop-item {
+      margin: 10px 0;
+    }
+    .shop-item button {
+      padding: 6px 12px;
+      background: #00c853;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .shop-item button:hover {
+      background: #00e676;
+    }
+    #start-btn {
+      margin-top: 20px;
+      padding: 12px 24px;
+      font-size: 18px;
+      background: #ff9800;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    #start-btn:hover {
+      background: #ffc107;
+    }
+  </style>
+</head>
+<body>
+  <div id="menu">
+    <button onclick="location.href='index.html'">🏠 Início</button>
+    <button onclick="location.href='shop.html'">🛒 Loja</button>
+    <button onclick="location.href='profile.html'">👤 Perfil</button>
+  </div>
+
+  <h1>🔥 Modo Desafio</h1>
+  <p id="timer">⏳ Tempo: 10</p>
+  <p id="lives">❤️ Vidas: 3</p>
+  <p id="coins">💰 PelembeCoins: 0</p>
+
+  <button id="start-btn" onclick="startChallenge()">🎮 Começar a Jogar</button>
+
+  <div class="question-box" style="display: none;">
+    <h2 id="question">Carregando pergunta...</h2>
+    <div class="answers" id="answer-buttons"></div>
+  </div>
+
+  <div id="shop">
+    <h3>🛒 Loja de Melhorias</h3>
+    <div class="shop-item">
+      <p>+1 Vida Extra (custa 10 PelembeCoins)</p>
+      <button onclick="comprarVidaExtra()">Comprar</button>
+    </div>
+    <div class="shop-item">
+      <p>+5 segundos no cronômetro (custa 5 PelembeCoins)</p>
+      <button onclick="comprarTempoExtra()">Comprar</button>
+    </div>
+  </div>
+
+  <script>
+    const questions = [
+      { question: "What is the capital of France?", answers: ["London", "Paris", "Berlin", "Rome"], correct: "Paris" },
+      { question: "Which planet is known as the Red Planet?", answers: ["Earth", "Saturn", "Mars", "Venus"], correct: "Mars" },
+      { question: "Translate 'apple' to Portuguese.", answers: ["Banana", "Maçã", "Pêra", "Uva"], correct: "Maçã" },
+      { question: "Which one is a verb?", answers: ["Run", "Blue", "Happy", "Tall"], correct: "Run" },
+      { question: "What is the past tense of 'go'?", answers: ["Goed", "Went", "Go", "Going"], correct: "Went" },
+      { question: "Translate 'livro' to English.", answers: ["Pen", "Book", "Paper", "Chair"], correct: "Book" },
+      { question: "How do you say 'cachorro' in English?", answers: ["Cat", "Dog", "Cow", "Fox"], correct: "Dog" },
+      { question: "Which is a fruit?", answers: ["Chair", "Table", "Orange", "Pen"], correct: "Orange" },
+      { question: "What color is the sky on a clear day?", answers: ["Green", "Blue", "Red", "Black"], correct: "Blue" },
+      { question: "Complete: I ___ hungry.", answers: ["am", "is", "are", "be"], correct: "am" }
+    ];
+
+    function shuffleQuestions() {
+      for (let i = questions.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [questions[i], questions[j]] = [questions[j], questions[i]];
+      }
+    }
+
+    let currentQuestionIndex = 0;
+    let lives = 3;
+    let coins = parseInt(localStorage.getItem("pelembeCoins")) || 0;
+
+    function updateUI() {
+      document.getElementById("lives").textContent = `❤️ Vidas: ${lives}`;
+      document.getElementById("coins").textContent = `💰 PelembeCoins: ${coins}`;
+    }
+
+    function showQuestion() {
+      const q = questions[currentQuestionIndex];
+      document.getElementById("question").textContent = q.question;
+      const buttonsDiv = document.getElementById("answer-buttons");
+      buttonsDiv.innerHTML = "";
+
+      q.answers.forEach(answer => {
+        const btn = document.createElement("button");
+        btn.textContent = answer;
+        btn.onclick = () => checkAnswer(answer);
+        buttonsDiv.appendChild(btn);
+      });
+    }
+
+    function checkAnswer(selected) {
+      const correct = questions[currentQuestionIndex].correct;
+      if (selected === correct) {
+        coins += 2;
+        localStorage.setItem("pelembeCoins", coins);
+        alert("✅ Correto! +2 PelembeCoins");
+      } else {
+        lives--;
+        alert("❌ Incorreto!");
+      }
+      updateUI();
+      currentQuestionIndex++;
+      if (currentQuestionIndex < questions.length && lives > 0) {
+        showQuestion();
+      } else {
+        alert("Fim do desafio!");
+      }
+    }
+
+    function startChallenge() {
+      document.getElementById("start-btn").style.display = "none";
+      document.querySelector(".question-box").style.display = "block";
+      currentQuestionIndex = 0;
+      lives = 3;
+      shuffleQuestions();
+      showQuestion();
+      updateUI();
+    }
+
+    function comprarVidaExtra() {
+      if (coins >= 10) {
+        coins -= 10;
+        lives++;
+        localStorage.setItem("pelembeCoins", coins);
+        updateUI();
+        alert("+1 Vida adquirida!");
+      } else {
+        alert("Moedas insuficientes.");
+      }
+    }
+
+    function comprarTempoExtra() {
+      if (coins >= 5) {
+        coins -= 5;
+        localStorage.setItem("pelembeCoins", coins);
+        alert("+5 segundos no tempo (em breve será adicionado ao temporizador).");
+        updateUI();
+      } else {
+        alert("Moedas insuficientes.");
+      }
+    }
+  </script>
+</body>
+</html>

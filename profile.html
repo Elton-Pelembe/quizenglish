@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Perfil do Jogador</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #e3f2fd, #ffffff);
+      color: #333;
+      padding: 20px;
+    }
+    h1, h2 {
+      color: #005f99;
+    }
+    .section {
+      margin-bottom: 30px;
+      border: 1px solid #ccc;
+      padding: 15px;
+      border-radius: 10px;
+      background: #ffffff;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    .badge {
+      font-size: 18px;
+      padding: 5px 12px;
+      margin: 5px;
+      border-radius: 10px;
+      background: #d1f4d1;
+      display: inline-block;
+      border: 1px solid #7ac47f;
+    }
+    .menu {
+      text-align: right;
+      margin-bottom: 20px;
+    }
+    .menu button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #007acc;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .menu button:hover {
+      background-color: #005f99;
+    }
+    .challenge-section {
+      background: #fff8e1;
+      border: 1px solid #ffcc80;
+    }
+    .challenge-btn {
+      background-color: #ffa000;
+      color: white;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+    <div id="profile-coins" style="font-size: 18px; margin-bottom: 10px; color: #ffd700;">
+  💰 PelembeCoins: 0
+</div>
+
+  <div class="menu">
+    <button onclick="window.location.href='index.html'">🏠 Menu Principal</button>
+  </div>
+
+  <h1>Perfil do Jogador</h1>
+
+  <div class="section" id="intro">
+    <h2>👤 Jogador</h2>
+    <p id="playerInfo">Carregando...</p>
+  </div>
+
+  <div class="section">
+    <h2>📈 Progresso</h2>
+    <p>Nível atual: <span id="nivel"></span></p>
+    <p>Pontuação: <span id="pontuacao"></span></p>
+    <p>Acertos: <span id="acertos"></span></p>
+    <p>Erros: <span id="erros"></span></p>
+    <p>Tempo médio por pergunta: <span id="tempoMedio"></span> segundos</p>
+  </div>
+
+  <div class="section">
+    <h2>🏅 Conquistas</h2>
+    <div id="conquistas"></div>
+  </div>
+
+  <div class="section challenge-section">
+    <h2>🔥 Modo Desafio</h2>
+    <p>Teste seus conhecimentos com perguntas mais difíceis e sem pausas. Você só tem 3 vidas, mas nenhuma dica!</p>
+    <button class="menu challenge-btn" onclick="iniciarDesafio()">Começar Desafio</button>
+  </div>
+
+  <script>
+    const nome = localStorage.getItem("playerName") || "Player";
+    const avatar = localStorage.getItem("playerAvatar") || "🧑";
+    const nivel = localStorage.getItem("playerLevel") || "1";
+    const pontuacao = localStorage.getItem("playerScore") || "0";
+    const acertos = localStorage.getItem("totalCorrect") || "0";
+    const erros = localStorage.getItem("totalWrong") || "0";
+    const tempoTotal = parseInt(localStorage.getItem("totalTime")) || 0;
+    const totalQuestoes = parseInt(localStorage.getItem("totalQuestions")) || 1;
+    const tempoMedio = (tempoTotal / totalQuestoes).toFixed(1);
+
+    const conquistas = JSON.parse(localStorage.getItem("achievements")) || {};
+
+    document.getElementById("playerInfo").innerText = `${avatar} ${nome}`;
+    document.getElementById("nivel").innerText = nivel;
+    document.getElementById("pontuacao").innerText = pontuacao;
+    document.getElementById("acertos").innerText = acertos;
+    document.getElementById("erros").innerText = erros;
+    document.getElementById("tempoMedio").innerText = tempoMedio;
+
+    const conquistasDiv = document.getElementById("conquistas");
+
+    if (conquistas.perfectLevel) conquistasDiv.innerHTML += '<span class="badge">✅ Perfeito</span>';
+    if (conquistas.survivor) conquistasDiv.innerHTML += '<span class="badge">💪 Sobrevivente</span>';
+    if (conquistas.fiftyCorrect) conquistasDiv.innerHTML += '<span class="badge">🎯 50 Acertos</span>';
+    if (conquistas.completedGame) conquistasDiv.innerHTML += '<span class="badge">🏁 Zerou o Jogo</span>';
+
+    if (conquistasDiv.innerHTML === '') {
+      conquistasDiv.innerText = "Nenhuma conquista ainda. Continue jogando!";
+    }
+
+    function iniciarDesafio() {
+      alert("Modo Desafio será iniciado. Boa sorte!");
+      window.location.href = "challenge.html";
+    }
+
+   
+  function mostrarPelembeCoins() {
+    const coins = parseInt(localStorage.getItem("pelembeCoins")) || 0;
+    const coinsDisplay = document.getElementById("profile-coins");
+    if (coinsDisplay) {
+      coinsDisplay.textContent = `💰 PelembeCoins: ${coins}`;
+    }
+  }
+
+  window.onload = function() {
+    mostrarPelembeCoins();
+    // Aqui você pode chamar outras funções para carregar o perfil
+  }
+
+
+  </script>
+</body>
+</html>
