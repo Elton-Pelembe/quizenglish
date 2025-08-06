@@ -1,5 +1,18 @@
 // script.js
 
+// Sound effects
+const correctSound = new Audio("sounds/correct.mp3");
+const wrongSound = new Audio("sounds/wrong.mp3");
+const timeoutSound = new Audio("sounds/timeout.mp3");
+const levelUpSound = new Audio("sounds/level-up.mp3");
+
+
+// Background music
+const bgMusic = new Audio("sounds/bg-music.mp3");
+bgMusic.loop = true;
+bgMusic.volume = 0.3;
+bgMusic.play();
+
 // Elements
 const questionElement = document.getElementById("question");
 const answerButtonsElement = document.getElementById("answer-buttons");
@@ -21,18 +34,15 @@ let lives = parseInt(localStorage.getItem("playerLives")) || MAX_LIVES;
 let timer;
 let timeLeft;
 
-// Show player name and stats
 const playerName = localStorage.getItem("playerName") || "Player";
 playerNameElement.innerText = playerName;
 livesElement.innerText = lives;
 scoreElement.innerText = score;
 
-// Start game on load
 window.onload = () => {
   startLevel();
 };
 
-// Start a level
 function startLevel() {
   levelTitle.innerText = `Level ${currentLevel}`;
   currentQuestionIndex = 0;
@@ -43,30 +53,27 @@ function startLevel() {
     alert("No questions found for this level.");
     return;
   }
+
   showQuestion();
 }
 
 function showQuestion() {
   resetState();
   const currentLevelQuestions = questions[`level${currentLevel}`];
-  if (!currentLevelQuestions || currentLevelQuestions.length === 0) {
-    alert("No questions found.");
-    return;
-  }
 
-  if (currentQuestionIndex >= currentLevelQuestions.length) {
-    // Level complete
-    currentLevel++;
-    localStorage.setItem("playerLevel", currentLevel);
-    alert(`Parabéns! Você avançou para o nível ${currentLevel}`);
-    startLevel();
-    return;
-  }
+if (currentQuestionIndex >= currentLevelQuestions.length) {
+  levelUpSound.play(); // <-- toca o som
+  currentLevel++;
+  localStorage.setItem("playerLevel", currentLevel);
+  alert(`Parabéns! Você avançou para o nível ${currentLevel}`);
+  startLevel();
+  return;
+}
+
 
   const currentQuestion = currentLevelQuestions[currentQuestionIndex];
   questionElement.innerText = currentQuestion.question;
 
-  // Update progress bar
   updateProgressBar();
 
   currentQuestion.answers.forEach(answer => {
@@ -78,7 +85,6 @@ function showQuestion() {
   });
 
   nextButton.style.display = "none";
-  nextButton.innerText = "Next";
   nextButton.onclick = () => {
     currentQuestionIndex++;
     showQuestion();
@@ -93,11 +99,13 @@ function selectAnswer(selectedButton, correctAnswer) {
 
   if (isCorrect) {
     selectedButton.classList.add("correct");
+    correctSound.play();
     score += 10;
     scoreElement.innerText = score;
     localStorage.setItem("playerScore", score);
   } else {
     selectedButton.classList.add("wrong");
+    wrongSound.play();
     lives--;
     livesElement.innerText = lives;
     localStorage.setItem("playerLives", lives);
@@ -137,6 +145,7 @@ function startTimer() {
     timerElement.innerText = `Time left: ${timeLeft}s`;
     if (timeLeft <= 0) {
       clearInterval(timer);
+      timeoutSound.play(); // <-- correto aqui
       lives--;
       livesElement.innerText = lives;
       localStorage.setItem("playerLives", lives);
@@ -147,7 +156,6 @@ function startTimer() {
         return;
       }
       nextButton.style.display = "inline-block";
-      // Disable buttons
       Array.from(answerButtonsElement.children).forEach(button => {
         button.disabled = true;
       });
