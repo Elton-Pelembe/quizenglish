@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nível 11 — Pronomes Pessoais</title>
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<div class="container">
+<h1>Nível 11 — Pronomes Pessoais</h1>
+
+<section class="aula">
+<p class="descricao">Aprenda os pronomes pessoais em inglês com pronúncia e exemplos detalhados.</p>
+
+<ul class="vocabulário">
+<li>I — Eu — <strong>[ai]</strong></li>
+<li>You — Tu / Você — <strong>[iu]</strong></li>
+<li>He — Ele — <strong>[hi]</strong></li>
+<li>She — Ela — <strong>[shi]</strong></li>
+<li>It — Ele / Ela (para coisas ou animais) — <strong>[it]</strong></li>
+<li>We — Nós — <strong>[wi]</strong></li>
+<li>You — Vocês — <strong>[iu]</strong></li>
+<li>They — Eles / Elas — <strong>[ðei]</strong></li>
+</ul>
+
+<h2>Exemplos:</h2>
+<ul class="exemplos">
+<li>I eat an apple. — Eu como uma maçã.</li>
+<li>You drink juice. — Você bebe suco.</li>
+<li>He reads a book. — Ele lê um livro.</li>
+<li>She writes in the notebook. — Ela escreve no caderno.</li>
+<li>It is a chair. — É uma cadeira.</li>
+<li>We see the table. — Nós vemos a mesa.</li>
+<li>They sleep at night. — Eles dormem à noite.</li>
+</ul>
+
+<audio controls class="audio">
+<source src="../audio/nivel11.mp3" type="audio/mpeg">
+Seu navegador não suporta o elemento de áudio.
+</audio>
+
+<button class="btn-start" onclick="startQuiz()">Começar Quiz</button>
+</section>
+
+<section class="quiz" style="display:none;">
+<div id="progress-bar"><div id="progress"></div></div>
+<div id="timer">10</div>
+<div id="quiz-container"></div>
+</section>
+
+<a href="../iniciante.html" class="sair">⬅ Voltar</a>
+</div>
+
+<script src="../js/quiz.js"></script>
+<script src="../js/conquistas.js"></script>
+<script>
+const nivel11Questions = [
+{ question: "Tradução de 'I'?", options: ["Eu","Tu","Nós"], answer: 0 },
+{ question: "Tradução de 'She'?", options: ["Ela","Ele","Eles"], answer: 0 },
+{ question: "Tradução de 'They'?", options: ["Eles / Elas","Nós","Você"], answer: 0 },
+{ question: "Tradução de 'We'?", options: ["Nós","Eu","Ele"], answer: 0 },
+{ question: "Tradução de 'You (singular)'?", options: ["Você","Ele","Nós"], answer: 0 },
+{ question: "Tradução de 'He'?", options: ["Ele","Ela","Eu"], answer: 0 },
+{ question: "Tradução de 'It'?", options: ["Ele / Ela","Você","Eles"], answer: 0 },
+{ question: "Tradução de 'You (plural)'?", options: ["Vocês","Tu","Eu"], answer: 0 },
+{ question: "Complete: '___ eat an apple.'", options: ["I","They","He"], answer: 0 },
+{ question: "Complete: 'She ___ a book.'", options: ["reads","eat","sleep"], answer: 0 }
+];
+initLevel("nivel11", nivel11Questions);
+</script>
+</body>
+</html>

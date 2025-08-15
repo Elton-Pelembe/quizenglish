@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nível 6 — Dias da Semana e Meses</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Nível 6 — Dias da Semana e Meses</h1>
+
+        <section class="aula">
+            <p class="descricao">Aprenda todos os dias da semana e os 12 meses do ano em inglês.</p>
+            <ul class="vocabulário">
+                <li>Monday — Segunda-feira</li>
+                <li>Tuesday — Terça-feira</li>
+                <li>Wednesday — Quarta-feira</li>
+                <li>Thursday — Quinta-feira</li>
+                <li>Friday — Sexta-feira</li>
+                <li>Saturday — Sábado</li>
+                <li>Sunday — Domingo</li>
+                <li>January — Janeiro</li>
+                <li>February — Fevereiro</li>
+                <li>March — Março</li>
+                <li>April — Abril</li>
+                <li>May — Maio</li>
+                <li>June — Junho</li>
+                <li>July — Julho</li>
+                <li>August — Agosto</li>
+                <li>September — Setembro</li>
+                <li>October — Outubro</li>
+                <li>November — Novembro</li>
+                <li>December — Dezembro</li>
+            </ul>
+
+            <audio controls class="audio">
+                <source src="../audio/nivel6.mp3" type="audio/mpeg">
+                Seu navegador não suporta o elemento de áudio.
+            </audio>
+
+            <button class="btn-start" onclick="startQuiz()">Começar Quiz</button>
+        </section>
+
+        <section class="quiz" style="display:none;">
+            <div id="progress-bar"><div id="progress"></div></div>
+            <div id="timer">10</div>
+            <div id="quiz-container"></div>
+        </section>
+
+        <a href="../iniciante.html" class="sair">⬅ Voltar</a>
+    </div>
+
+    <script src="../js/quiz.js"></script>
+    <script src="../js/conquistas.js"></script>
+    <script>
+        const nivel6Questions = [
+            { question: "Tradução de 'Monday'?", options: ["Segunda-feira", "Terça-feira", "Quarta-feira"], answer: 0 },
+            { question: "Tradução de 'Tuesday'?", options: ["Terça-feira", "Segunda-feira", "Quarta-feira"], answer: 0 },
+            { question: "Tradução de 'Wednesday'?", options: ["Quarta-feira", "Sexta-feira", "Domingo"], answer: 0 },
+            { question: "Tradução de 'Thursday'?", options: ["Quinta-feira", "Sexta-feira", "Terça-feira"], answer: 0 },
+            { question: "Tradução de 'Friday'?", options: ["Sexta-feira", "Sábado", "Quinta-feira"], answer: 0 },
+            { question: "Tradução de 'Saturday'?", options: ["Sábado", "Domingo", "Sexta-feira"], answer: 0 },
+            { question: "Tradução de 'Sunday'?", options: ["Domingo", "Sábado", "Segunda-feira"], answer: 0 },
+            { question: "Tradução de 'January'?", options: ["Janeiro", "Fevereiro", "Março"], answer: 0 },
+            { question: "Tradução de 'February'?", options: ["Fevereiro", "Janeiro", "Março"], answer: 0 },
+            { question: "Tradução de 'March'?", options: ["Março", "Abril", "Maio"], answer: 0 }
+            // Para simplificar, quiz inicial com 10 perguntas, você pode adicionar mais depois para cobrir todos os meses
+        ];
+
+        initLevel("nivel6", nivel6Questions);
+    </script>
+</body>
+</html>

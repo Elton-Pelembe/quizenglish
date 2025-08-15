@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nível 5 — Comidas e Bebidas</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Nível 5 — Comidas e Bebidas</h1>
+
+        <section class="aula">
+            <p class="descricao">Aprenda palavras básicas sobre alimentos e bebidas em inglês.</p>
+            <ul class="vocabulário">
+                <li>Water — Água</li>
+                <li>Milk — Leite</li>
+                <li>Bread — Pão</li>
+                <li>Rice — Arroz</li>
+                <li>Egg — Ovo</li>
+                <li>Apple — Maçã</li>
+                <li>Banana — Banana</li>
+                <li>Orange — Laranja</li>
+                <li>Juice — Suco</li>
+                <li>Coffee — Café</li>
+            </ul>
+
+            <audio controls class="audio">
+                <source src="../audio/nivel5.mp3" type="audio/mpeg">
+                Seu navegador não suporta o elemento de áudio.
+            </audio>
+
+            <button class="btn-start" onclick="startQuiz()">Começar Quiz</button>
+        </section>
+
+        <section class="quiz" style="display:none;">
+            <div id="progress-bar"><div id="progress"></div></div>
+            <div id="timer">10</div>
+            <div id="quiz-container"></div>
+        </section>
+
+        <a href="../iniciante.html" class="sair">⬅ Voltar</a>
+    </div>
+
+    <script src="../js/quiz.js"></script>
+    <script src="../js/conquistas.js"></script>
+    <script>
+        const nivel5Questions = [
+            { question: "Tradução de 'Water'?", options: ["Água", "Leite", "Suco"], answer: 0 },
+            { question: "Tradução de 'Milk'?", options: ["Leite", "Água", "Pão"], answer: 0 },
+            { question: "Tradução de 'Bread'?", options: ["Pão", "Arroz", "Ovo"], answer: 0 },
+            { question: "Tradução de 'Rice'?", options: ["Arroz", "Pão", "Leite"], answer: 0 },
+            { question: "Tradução de 'Egg'?", options: ["Ovo", "Banana", "Maçã"], answer: 0 },
+            { question: "Tradução de 'Apple'?", options: ["Maçã", "Laranja", "Banana"], answer: 0 },
+            { question: "Tradução de 'Banana'?", options: ["Banana", "Maçã", "Laranja"], answer: 0 },
+            { question: "Tradução de 'Orange'?", options: ["Laranja", "Maçã", "Banana"], answer: 0 },
+            { question: "Tradução de 'Juice'?", options: ["Suco", "Água", "Café"], answer: 0 },
+            { question: "Tradução de 'Coffee'?", options: ["Café", "Suco", "Leite"], answer: 0 }
+        ];
+
+        initLevel("nivel5", nivel5Questions);
+    </script>
+</body>
+</html>

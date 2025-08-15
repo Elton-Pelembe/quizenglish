@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nível 8 — Objetos da Sala de Aula</title>
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<div class="container">
+<h1>Nível 8 — Objetos da Sala de Aula</h1>
+
+<section class="aula">
+<p class="descricao">Aprenda palavras de objetos comuns em uma sala de aula.</p>
+<ul class="vocabulário">
+<li>Book — Livro</li>
+<li>Pen — Caneta</li>
+<li>Pencil — Lápis</li>
+<li>Eraser — Borracha</li>
+<li>Notebook — Caderno</li>
+<li>Chair — Cadeira</li>
+<li>Desk — Mesa</li>
+<li>Board — Quadro</li>
+<li>Marker — Marcador</li>
+<li>Ruler — Régua</li>
+</ul>
+
+<audio controls class="audio">
+<source src="../audio/nivel8.mp3" type="audio/mpeg">
+Seu navegador não suporta o elemento de áudio.
+</audio>
+
+<button class="btn-start" onclick="startQuiz()">Começar Quiz</button>
+</section>
+
+<section class="quiz" style="display:none;">
+<div id="progress-bar"><div id="progress"></div></div>
+<div id="timer">10</div>
+<div id="quiz-container"></div>
+</section>
+
+<a href="../iniciante.html" class="sair">⬅ Voltar</a>
+</div>
+
+<script src="../js/quiz.js"></script>
+<script src="../js/conquistas.js"></script>
+<script>
+const nivel8Questions = [
+{ question: "Tradução de 'Book'?", options: ["Livro","Caderno","Caneta"], answer: 0 },
+{ question: "Tradução de 'Pen'?", options: ["Caneta","Lápis","Borracha"], answer: 0 },
+{ question: "Tradução de 'Pencil'?", options: ["Lápis","Caneta","Livro"], answer: 0 },
+{ question: "Tradução de 'Eraser'?", options: ["Borracha","Marcador","Régua"], answer: 0 },
+{ question: "Tradução de 'Notebook'?", options: ["Caderno","Livro","Mesa"], answer: 0 },
+{ question: "Tradução de 'Chair'?", options: ["Cadeira","Mesa","Quadro"], answer: 0 },
+{ question: "Tradução de 'Desk'?", options: ["Mesa","Cadeira","Marcador"], answer: 0 },
+{ question: "Tradução de 'Board'?", options: ["Quadro","Régua","Cadeira"], answer: 0 },
+{ question: "Tradução de 'Marker'?", options: ["Marcador","Caneta","Lápis"], answer: 0 },
+{ question: "Tradução de 'Ruler'?", options: ["Régua","Quadro","Caderno"], answer: 0 }
+];
+initLevel("nivel8", nivel8Questions);
+</script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nível 4 — Família e Amigos</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Nível 4 — Família e Amigos</h1>
+
+        <section class="aula">
+            <p class="descricao">Aprenda vocabulário sobre membros da família e amigos.</p>
+            <ul class="vocabulário">
+                <li>Father — Pai</li>
+                <li>Mother — Mãe</li>
+                <li>Brother — Irmão</li>
+                <li>Sister — Irmã</li>
+                <li>Grandfather — Avô</li>
+                <li>Grandmother — Avó</li>
+                <li>Friend — Amigo</li>
+                <li>Best friend — Melhor amigo</li>
+                <li>Cousin — Primo</li>
+                <li>Uncle — Tio</li>
+            </ul>
+
+            <audio controls class="audio">
+                <source src="../audio/nivel4.mp3" type="audio/mpeg">
+                Seu navegador não suporta o elemento de áudio.
+            </audio>
+
+            <button class="btn-start" onclick="startQuiz()">Começar Quiz</button>
+        </section>
+
+        <section class="quiz" style="display:none;">
+            <div id="progress-bar"><div id="progress"></div></div>
+            <div id="timer">10</div>
+            <div id="quiz-container"></div>
+        </section>
+
+        <a href="../iniciante.html" class="sair">⬅ Voltar</a>
+    </div>
+
+    <script src="../js/quiz.js"></script>
+    <script src="../js/conquistas.js"></script>
+    <script>
+        const nivel4Questions = [
+            { question: "Tradução de 'Father'?", options: ["Pai", "Mãe", "Irmão"], answer: 0 },
+            { question: "Tradução de 'Mother'?", options: ["Mãe", "Pai", "Irmã"], answer: 0 },
+            { question: "Tradução de 'Brother'?", options: ["Irmão", "Amigo", "Avô"], answer: 0 },
+            { question: "Tradução de 'Sister'?", options: ["Irmã", "Prima", "Amiga"], answer: 0 },
+            { question: "Tradução de 'Grandfather'?", options: ["Avô", "Tio", "Pai"], answer: 0 },
+            { question: "Tradução de 'Grandmother'?", options: ["Avó", "Mãe", "Irmã"], answer: 0 },
+            { question: "Tradução de 'Friend'?", options: ["Amigo", "Primo", "Melhor amigo"], answer: 0 },
+            { question: "Tradução de 'Best friend'?", options: ["Melhor amigo", "Amigo", "Primo"], answer: 0 },
+            { question: "Tradução de 'Cousin'?", options: ["Primo", "Tio", "Amigo"], answer: 0 },
+            { question: "Tradução de 'Uncle'?", options: ["Tio", "Avô", "Pai"], answer: 0 }
+        ];
+
+        initLevel("nivel4", nivel4Questions);
+    </script>
+</body>
+</html>

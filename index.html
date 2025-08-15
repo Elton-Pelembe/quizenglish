@@ -1,111 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
 <head>
-  <head>
-    <meta name="google-site-verification" content="google85a2415fc123cb56.html" />
-
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" href="icons/icon.png" type="image/png" />
-
-    <title>English Quiz Online - Teste Seu Inglês Grátis</title>
-  
-    <meta name="description" content="Teste seu inglês gratuitamente com quizzes interativos! Pratique vocabulário, gramática e compreensão de forma divertida. Ideal para iniciantes e estudantes de todos os níveis.">
-    <meta name="keywords" content="quiz de inglês, teste de inglês, aprender inglês, English quiz, vocabulário inglês, gramática inglesa, jogo educativo, ESL, teste online gratuito, estudo de inglês">
-    <meta name="author" content="Elton Pelembe" />
-    <meta name="robots" content="index, follow" />
-  
-    <link rel="stylesheet" href="style.css" />
-    <link rel="manifest" href="manifest.json" />
-    <meta name="theme-color" content="#4a90e2" />
-    <link rel="icon" href="favicon.ico" type="image/x-icon" />
-  </head>
-  
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Welcome to English Quiz</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="manifest" href="manifest.json" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Game</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    <div class="container">
+        <h1>Bem-vindo ao Quiz de Inglês</h1>
+        <input type="text" id="username" placeholder="Digite seu nome">
+        <button id="btn-entrar">Entrar</button>
+    </div>
 
-  <!-- Menu com links -->
-  <div id="menu">
-    <button onclick="location.href='index.html'">🏠 Início</button>
-    <button onclick="location.href='shop.html'">🛒 Loja</button>
-    <button onclick="location.href='profile.html'">👤 Perfil</button>
-  </div>
-
-  <div id="loja-container"></div>
-
-  <div class="welcome-container">
-    <h1>Welcome to the English Quiz!</h1>
-    <input type="text" id="playerName" placeholder="Enter your name" />
-    <button onclick="startGame()">🎮 Começar a Jogar</button>
-  </div>
-
-  <script>
-    function startGame() {
-      const name = document.getElementById("playerName").value.trim();
-      if (name === "") {
-        alert("Please enter your name!");
-        return;
-      }
-
-      // Salva dados iniciais
-      localStorage.setItem("playerName", name);
-      localStorage.setItem("playerScore", "0");
-      localStorage.setItem("playerLives", "3");
-      localStorage.setItem("playerLevel", "1");
-
-      // Verifica moedas
-      if (!localStorage.getItem("pelembeCoins")) {
-        localStorage.setItem("pelembeCoins", "0");
-      }
-
-      // Redireciona
-      window.location.href = "quiz.html";
-    }
-  </script>
-
-  <script>
-    // Carrega loja e PelembeCoins
-    fetch("shop.html")
-      .then(res => res.text())
-      .then(html => {
-        document.getElementById("loja-container").innerHTML = html;
-        atualizarMoedas();
-      });
-
-    function atualizarMoedas() {
-      const coins = parseInt(localStorage.getItem("pelembeCoins")) || 0;
-      const display = document.getElementById("coin-count");
-      if (display) display.innerText = coins;
-    }
-
-    function comprarVidaExtra() {
-      let coins = parseInt(localStorage.getItem("pelembeCoins")) || 0;
-      if (coins >= 10) {
-        coins -= 10;
-        localStorage.setItem("pelembeCoins", coins);
-        alert("+1 Vida comprada!");
-        atualizarMoedas();
-      } else {
-        alert("Você precisa de 10 PelembeCoins.");
-      }
-    }
-
-    function comprarTempoExtra() {
-      let coins = parseInt(localStorage.getItem("pelembeCoins")) || 0;
-      if (coins >= 5) {
-        coins -= 5;
-        localStorage.setItem("pelembeCoins", coins);
-        alert("+5 segundos adicionados!");
-        atualizarMoedas();
-      } else {
-        alert("Você precisa de 5 PelembeCoins.");
-      }
-    }
-  </script>
+    <script src="js/main.js"></script>
 </body>
 </html>

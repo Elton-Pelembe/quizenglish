@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nível 9 — Verbos Comuns</title>
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<div class="container">
+<h1>Nível 9 — Verbos Comuns</h1>
+
+<section class="aula">
+<p class="descricao">Aprenda verbos básicos usados no dia a dia.</p>
+<ul class="vocabulário">
+<li>Go — Ir</li>
+<li>Come — Vir</li>
+<li>Eat — Comer</li>
+<li>Drink — Beber</li>
+<li>See — Ver</li>
+<li>Hear — Ouvir</li>
+<li>Speak — Falar</li>
+<li>Read — Ler</li>
+<li>Write — Escrever</li>
+<li>Sleep — Dormir</li>
+</ul>
+
+<audio controls class="audio">
+<source src="../audio/nivel9.mp3" type="audio/mpeg">
+Seu navegador não suporta o elemento de áudio.
+</audio>
+
+<button class="btn-start" onclick="startQuiz()">Começar Quiz</button>
+</section>
+
+<section class="quiz" style="display:none;">
+<div id="progress-bar"><div id="progress"></div></div>
+<div id="timer">10</div>
+<div id="quiz-container"></div>
+</section>
+
+<a href="../iniciante.html" class="sair">⬅ Voltar</a>
+</div>
+
+<script src="../js/quiz.js"></script>
+<script src="../js/conquistas.js"></script>
+<script>
+const nivel9Questions = [
+{ question: "Tradução de 'Go'?", options: ["Ir","Vir","Comer"], answer: 0 },
+{ question: "Tradução de 'Come'?", options: ["Vir","Ir","Dormir"], answer: 0 },
+{ question: "Tradução de 'Eat'?", options: ["Comer","Beber","Ler"], answer: 0 },
+{ question: "Tradução de 'Drink'?", options: ["Beber","Comer","Falar"], answer: 0 },
+{ question: "Tradução de 'See'?", options: ["Ver","Ouvir","Dormir"], answer: 0 },
+{ question: "Tradução de 'Hear'?", options: ["Ouvir","Ver","Comer"], answer: 0 },
+{ question: "Tradução de 'Speak'?", options: ["Falar","Ler","Escrever"], answer: 0 },
+{ question: "Tradução de 'Read'?", options: ["Ler","Escrever","Dormir"], answer: 0 },
+{ question: "Tradução de 'Write'?", options: ["Escrever","Ler","Falar"], answer: 0 },
+{ question: "Tradução de 'Sleep'?", options: ["Dormir","Comer","Beber"], answer: 0 }
+];
+initLevel("nivel9", nivel9Questions);
+</script>
+</body>
+</html>

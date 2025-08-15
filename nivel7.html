@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nível 7 — Partes do Corpo</title>
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<div class="container">
+<h1>Nível 7 — Partes do Corpo</h1>
+
+<section class="aula">
+<p class="descricao">Aprenda palavras básicas sobre partes do corpo em inglês.</p>
+<ul class="vocabulário">
+<li>Head — Cabeça</li>
+<li>Hair — Cabelo</li>
+<li>Eye — Olho</li>
+<li>Ear — Orelha</li>
+<li>Nose — Nariz</li>
+<li>Mouth — Boca</li>
+<li>Hand — Mão</li>
+<li>Foot — Pé</li>
+<li>Leg — Perna</li>
+<li>Arm — Braço</li>
+</ul>
+
+<audio controls class="audio">
+<source src="../audio/nivel7.mp3" type="audio/mpeg">
+Seu navegador não suporta o elemento de áudio.
+</audio>
+
+<button class="btn-start" onclick="startQuiz()">Começar Quiz</button>
+</section>
+
+<section class="quiz" style="display:none;">
+<div id="progress-bar"><div id="progress"></div></div>
+<div id="timer">10</div>
+<div id="quiz-container"></div>
+</section>
+
+<a href="../iniciante.html" class="sair">⬅ Voltar</a>
+</div>
+
+<script src="../js/quiz.js"></script>
+<script src="../js/conquistas.js"></script>
+<script>
+const nivel7Questions = [
+{ question: "Tradução de 'Head'?", options: ["Cabeça","Braço","Pé"], answer: 0 },
+{ question: "Tradução de 'Hair'?", options: ["Cabelo","Olho","Nariz"], answer: 0 },
+{ question: "Tradução de 'Eye'?", options: ["Olho","Boca","Orelha"], answer: 0 },
+{ question: "Tradução de 'Ear'?", options: ["Orelha","Braço","Perna"], answer: 0 },
+{ question: "Tradução de 'Nose'?", options: ["Nariz","Olho","Mão"], answer: 0 },
+{ question: "Tradução de 'Mouth'?", options: ["Boca","Cabelo","Braço"], answer: 0 },
+{ question: "Tradução de 'Hand'?", options: ["Mão","Pé","Perna"], answer: 0 },
+{ question: "Tradução de 'Foot'?", options: ["Pé","Braço","Mão"], answer: 0 },
+{ question: "Tradução de 'Leg'?", options: ["Perna","Braço","Pé"], answer: 0 },
+{ question: "Tradução de 'Arm'?", options: ["Braço","Cabeça","Mão"], answer: 0 }
+];
+initLevel("nivel7", nivel7Questions);
+</script>
+</body>
+</html>

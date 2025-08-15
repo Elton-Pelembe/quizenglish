@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nível 10 — Objetos do Cotidiano</title>
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<div class="container">
+<h1>Nível 10 — Objetos do Cotidiano</h1>
+
+<section class="aula">
+<p class="descricao">Aprenda palavras básicas sobre objetos do dia a dia.</p>
+<ul class="vocabulário">
+<li>Chair — Cadeira</li>
+<li>Table — Mesa</li>
+<li>Phone — Telefone</li>
+<li>Computer — Computador</li>
+<li>Bag — Bolsa</li>
+<li>Key — Chave</li>
+<li>Shoes — Sapatos</li>
+<li>Watch — Relógio</li>
+<li>Glasses — Óculos</li>
+<li>Wallet — Carteira</li>
+</ul>
+
+<audio controls class="audio">
+<source src="../audio/nivel10.mp3" type="audio/mpeg">
+Seu navegador não suporta o elemento de áudio.
+</audio>
+
+<button class="btn-start" onclick="startQuiz()">Começar Quiz</button>
+</section>
+
+<section class="quiz" style="display:none;">
+<div id="progress-bar"><div id="progress"></div></div>
+<div id="timer">10</div>
+<div id="quiz-container"></div>
+</section>
+
+<a href="../iniciante.html" class="sair">⬅ Voltar</a>
+</div>
+
+<script src="../js/quiz.js"></script>
+<script src="../js/conquistas.js"></script>
+<script>
+const nivel10Questions = [
+{ question: "Tradução de 'Chair'?", options: ["Cadeira","Mesa","Bolsa"], answer: 0 },
+{ question: "Tradução de 'Table'?", options: ["Mesa","Cadeira","Chave"], answer: 0 },
+{ question: "Tradução de 'Phone'?", options: ["Telefone","Computador","Bolsa"], answer: 0 },
+{ question: "Tradução de 'Computer'?", options: ["Computador","Telefone","Relógio"], answer: 0 },
+{ question: "Tradução de 'Bag'?", options: ["Bolsa","Sapatos","Chave"], answer: 0 },
+{ question: "Tradução de 'Key'?", options: ["Chave","Carteira","Óculos"], answer: 0 },
+{ question: "Tradução de 'Shoes'?", options: ["Sapatos","Bolsa","Relógio"], answer: 0 },
+{ question: "Tradução de 'Watch'?", options: ["Relógio","Chave","Computador"], answer: 0 },
+{ question: "Tradução de 'Glasses'?", options: ["Óculos","Carteira","Bolsa"], answer: 0 },
+{ question: "Tradução de 'Wallet'?", options: ["Carteira","Óculos","Chave"], answer: 0 }
+];
+initLevel("nivel10", nivel10Questions);
+</script>
+</body>
+</html>

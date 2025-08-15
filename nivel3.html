@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nível 3 — Números e Cores</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Nível 3 — Números e Cores</h1>
+
+        <section class="aula">
+            <p class="descricao">Aprenda os números de 1 a 10 e cores básicas em inglês.</p>
+            <ul class="vocabulário">
+                <li>One — Um</li>
+                <li>Two — Dois</li>
+                <li>Three — Três</li>
+                <li>Four — Quatro</li>
+                <li>Five — Cinco</li>
+                <li>Red — Vermelho</li>
+                <li>Blue — Azul</li>
+                <li>Green — Verde</li>
+                <li>Yellow — Amarelo</li>
+                <li>Black — Preto</li>
+            </ul>
+
+            <audio controls class="audio">
+                <source src="../audio/nivel3.mp3" type="audio/mpeg">
+                Seu navegador não suporta o elemento de áudio.
+            </audio>
+
+            <button class="btn-start" onclick="startQuiz()">Começar Quiz</button>
+        </section>
+
+        <section class="quiz" style="display:none;">
+            <div id="progress-bar"><div id="progress"></div></div>
+            <div id="timer">10</div>
+            <div id="quiz-container"></div>
+        </section>
+
+        <a href="../iniciante.html" class="sair">⬅ Voltar</a>
+    </div>
+
+    <script src="../js/quiz.js"></script>
+    <script src="../js/conquistas.js"></script>
+    <script>
+        const nivel3Questions = [
+            { question: "Qual o número 'Three'?", options: ["Três", "Quatro", "Cinco"], answer: 0 },
+            { question: "Tradução de 'Red'?", options: ["Vermelho", "Azul", "Verde"], answer: 0 },
+            { question: "Número 'Five'?", options: ["Cinco", "Seis", "Quatro"], answer: 0 },
+            { question: "Tradução de 'Blue'?", options: ["Azul", "Amarelo", "Preto"], answer: 0 },
+            { question: "Número 'One'?", options: ["Um", "Dois", "Três"], answer: 0 },
+            { question: "Tradução de 'Green'?", options: ["Verde", "Vermelho", "Azul"], answer: 0 },
+            { question: "Número 'Four'?", options: ["Quatro", "Cinco", "Seis"], answer: 0 },
+            { question: "Tradução de 'Yellow'?", options: ["Amarelo", "Verde", "Preto"], answer: 0 },
+            { question: "Número 'Two'?", options: ["Dois", "Um", "Três"], answer: 0 },
+            { question: "Tradução de 'Black'?", options: ["Preto", "Amarelo", "Vermelho"], answer: 0 }
+        ];
+
+        initLevel("nivel3", nivel3Questions);
+    </script>
+</body>
+</html>

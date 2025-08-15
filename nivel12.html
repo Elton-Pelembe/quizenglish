@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nível 12 — Verbo To Be (Presente)</title>
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<div class="container">
+<h1>Nível 12 — Verbo “To Be” (Presente)</h1>
+
+<section class="aula">
+<p class="descricao">Aprenda como usar o verbo “to be” no presente com todos os pronomes pessoais, usando palavras já estudadas.</p>
+
+<h2>Conjugação:</h2>
+<ul class="vocabulário">
+<li>I am — Eu sou / Eu estou</li>
+<li>You are — Você é / Você está</li>
+<li>He is — Ele é / Ele está</li>
+<li>She is — Ela é / Ela está</li>
+<li>It is — Ele/ela é / Ele/ela está</li>
+<li>We are — Nós somos / Nós estamos</li>
+<li>They are — Eles/elas são / Eles/elas estão</li>
+</ul>
+
+<h2>Exemplos usando palavras já estudadas:</h2>
+<ul class="exemplos">
+<li>I am a student. — Eu sou um estudante.</li>
+<li>You are happy. — Você está feliz.</li>
+<li>He is reading a book. — Ele está lendo um livro.</li>
+<li>She is writing in the notebook. — Ela está escrevendo no caderno.</li>
+<li>It is a chair. — É uma cadeira.</li>
+<li>We are drinking juice. — Nós estamos bebendo suco.</li>
+<li>They are sleeping. — Eles estão dormindo.</li>
+</ul>
+
+<audio controls class="audio">
+<source src="../audio/nivel12.mp3" type="audio/mpeg">
+Seu navegador não suporta o elemento de áudio.
+</audio>
+
+<button class="btn-start" onclick="startQuiz()">Começar Quiz</button>
+</section>
+
+<section class="quiz" style="display:none;">
+<div id="progress-bar"><div id="progress"></div></div>
+<div id="timer">10</div>
+<div id="quiz-container"></div>
+</section>
+
+<a href="../iniciante.html" class="sair">⬅ Voltar</a>
+</div>
+
+<script src="../js/quiz.js"></script>
+<script src="../js/conquistas.js"></script>
+<script>
+const nivel12Questions = [
+{ question: "Complete: 'I ___ a student.'", options: ["am","is","are"], answer: 0 },
+{ question: "Complete: 'He ___ a book.'", options: ["is","am","are"], answer: 0 },
+{ question: "Tradução: 'We are drinking juice.'", options: ["Nós estamos bebendo suco","Eles bebem suco","Eu bebo suco"], answer: 0 },
+{ question: "Complete: 'She ___ in the notebook.'", options: ["is","am","are"], answer: 0 },
+{ question: "Tradução: 'It is a chair.'", options: ["É uma cadeira","É uma mesa","É um livro"], answer: 0 },
+{ question: "Complete: 'You ___ happy.'", options: ["are","am","is"], answer: 0 },
+{ question: "Complete: 'They ___ sleeping.'", options: ["are","is","am"], answer: 0 },
+{ question: "Tradução: 'I am a student.'", options: ["Eu sou um estudante","Eu bebo suco","Ele lê"], answer: 0 },
+{ question: "Complete: 'He ___ reading a book.'", options: ["is","are","am"], answer: 0 },
+{ question: "Complete: 'We ___ drinking juice.'", options: ["are","am","is"], answer: 0 }
+];
+initLevel("nivel12", nivel12Questions);
+</script>
+</body>
+</html>

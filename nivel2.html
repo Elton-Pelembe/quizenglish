@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nível 2 — Saudações e Apresentações</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Nível 2 — Saudações e Apresentações</h1>
+
+        <!-- Aula -->
+        <section class="aula">
+            <p class="descricao">Aprenda a se apresentar e cumprimentar em inglês.</p>
+            <ul class="vocabulário">
+                <li>Hi — Oi</li>
+                <li>Hello — Olá</li>
+                <li>Good morning — Bom dia</li>
+                <li>Good afternoon — Boa tarde</li>
+                <li>Good evening — Boa noite (quando chega)</li>
+                <li>What's your name? — Qual é o seu nome?</li>
+                <li>My name is… — Meu nome é…</li>
+                <li>Nice to meet you — Prazer em conhecê-lo</li>
+                <li>How do you do? — Como vai você?</li>
+                <li>Pleased to meet you — Prazer em conhecê-lo</li>
+            </ul>
+
+            <audio controls class="audio">
+                <source src="../audio/nivel2.mp3" type="audio/mpeg">
+                Seu navegador não suporta o elemento de áudio.
+            </audio>
+
+            <button class="btn-start" onclick="startQuiz()">Começar Quiz</button>
+        </section>
+
+        <!-- Quiz -->
+        <section class="quiz" style="display:none;">
+            <div id="progress-bar"><div id="progress"></div></div>
+            <div id="timer">10</div>
+            <div id="quiz-container"></div>
+        </section>
+
+        <a href="../iniciante.html" class="sair">⬅ Voltar</a>
+    </div>
+
+    <script src="../js/quiz.js"></script>
+    <script src="../js/conquistas.js"></script>
+    <script>
+        const nivel2Questions = [
+            { question: "Como se diz 'Oi'?", options: ["Hi", "Hello", "Good morning"], answer: 0 },
+            { question: "Tradução de 'Hello'?", options: ["Olá", "Adeus", "Boa tarde"], answer: 0 },
+            { question: "Como se diz 'Prazer em conhecê-lo'?", options: ["Nice to meet you", "Hello", "Goodbye"], answer: 0 },
+            { question: "Como perguntar 'Qual é o seu nome?'", options: ["What's your name?", "My name is...", "How do you do?"], answer: 0 },
+            { question: "Tradução de 'Good evening'?", options: ["Boa noite", "Bom dia", "Boa tarde"], answer: 0 },
+            { question: "Como se diz 'Meu nome é…'?", options: ["My name is...", "I am...", "You are..."], answer: 0 },
+            { question: "Tradução de 'Pleased to meet you'?", options: ["Prazer em conhecê-lo", "Olá", "Até logo"], answer: 0 },
+            { question: "Como se diz 'Como vai você?'", options: ["How do you do?", "Hello", "Good morning"], answer: 0 },
+            { question: "Tradução de 'Good afternoon'?", options: ["Boa tarde", "Bom dia", "Boa noite"], answer: 0 },
+            { question: "Tradução de 'Nice to meet you'?", options: ["Prazer em conhecê-lo", "Olá", "Adeus"], answer: 0 }
+        ];
+
+        initLevel("nivel2", nivel2Questions);
+    </script>
+</body>
+</html>
