@@ -1,134 +1,123 @@
+/* style.css */
+
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
 body {
-  font-family: 'Segoe UI', sans-serif;
-  margin: 0;
-  padding: 0;
-  background: linear-gradient(to right, #00c6ff, #0072ff);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  color: #fff;
+    background: linear-gradient(135deg, #74ebd5, #ACB6E5);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.welcome-container, .quiz-container {
-  background: white;
-  color: #333;
-  padding: 30px;
-  border-radius: 20px;
-  width: 90%;
-  max-width: 500px;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.3);
-  text-align: center;
+.container {
+    background: rgba(255,255,255,0.95);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    text-align: center;
+    width: 90%;
+    max-width: 400px;
 }
 
-input {
-  padding: 10px;
-  width: 80%;
-  margin-top: 20px;
-  font-size: 16px;
-  border-radius: 10px;
-  border: 1px solid #ccc;
+h1 {
+    color: #333;
+    margin-bottom: 30px;
+    font-size: 2rem;
+}
+
+input[type="text"] {
+    width: 80%;
+    padding: 12px 15px;
+    margin-bottom: 20px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    font-size: 1rem;
+    transition: 0.3s;
+}
+
+input[type="text"]:focus {
+    border-color: #74ebd5;
+    outline: none;
 }
 
 button {
-  padding: 10px 20px;
-  margin-top: 20px;
-  font-size: 16px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 10px;
+    background-color: #74ebd5;
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.3s;
 }
 
 button:hover {
-  background-color: #0056b3;
+    background-color: #ACB6E5;
 }
 
-.timer, .lives {
-  font-weight: bold;
-  margin: 10px 0;
-}
-
-.answer-option {
-  background-color: #f0f8ff;
-  border: 2px solid #007acc;
-  color: #003366;
-  padding: 12px;
-  margin: 8px 0;
-  font-size: 18px;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: background-color 0.3s, transform 0.2s;
-}
-
-.answer-option:hover {
-  background-color: #d0eaff;
-  transform: scale(1.03);
-}
-
-.answer-option.correct {
-  background-color: #a2f5a2;
-  border-color: #2d8a2d;
-}
-
-.answer-option.wrong {
-  background-color: #f5a2a2;
-  border-color: #8a2d2d;
-}
-
-#progress-container {
-  width: 100%;
-  height: 10px;
-  background-color: #ddd;
-  margin: 10px 0;
-  border-radius: 5px;
-  overflow: hidden;
-}
-#progress-bar {
-  height: 100%;
-  width: 0%;
-  background-color: #4caf50;
-  transition: width 0.3s ease;
-}
-
-#menu {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background-color: #1f1f1f;
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  padding: 10px 0;
-  z-index: 1000;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
-}
-#menu button {
-  background-color: #00bcd4;
-  color: white;
-  border: none;
-  padding: 8px 16px;
-  border-radius: 6px;
-  cursor: pointer;
-}
-#menu button:hover {
-  background-color: #00e5ff;
-}
-
-.btn-iniciantes {
-    display: inline-block;
-    padding: 15px 25px;
-    background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+#niveis button {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    margin: 10px 0;
+    font-size: 1.1rem;
+    border-radius: 10px;
+    border: none;
+    background-color: #74ebd5;
     color: white;
-    font-weight: bold;
-    text-decoration: none;
-    border-radius: 12px;
-    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+    transition: 0.3s;
 }
 
-.btn-iniciantes:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+#niveis button:hover {
+    background-color: #ACB6E5;
+}
+
+/* Quiz */
+.quiz {
+    margin-top: 20px;
+}
+
+#progress-bar {
+    width: 100%;
+    background: #eee;
+    border-radius: 20px;
+    margin-bottom: 10px;
+    height: 20px;
+}
+
+#progress {
+    width: 0%;
+    height: 100%;
+    background: #74ebd5;
+    border-radius: 20px;
+    transition: 0.3s;
+}
+
+#timer {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.quiz button {
+    margin: 5px;
+    padding: 10px 20px;
+    background-color: #74ebd5;
+    color: white;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.quiz button:hover {
+    background-color: #ACB6E5;
 }
